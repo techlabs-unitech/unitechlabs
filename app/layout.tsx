@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: 'UnitechLabs',
     title: 'UnitechLabs — Where Code Meets the Real World',
     description: 'Custom software, IoT systems, and AI — engineered end-to-end for businesses that refuse to settle for off-the-shelf.',
-    images: [{ url: '/og-image.svg', width: 1200, height: 630, alt: 'UnitechLabs — End-to-End Technology Solutions' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'UnitechLabs — End-to-End Technology Solutions' }],
     locale: 'en_IN',
     url: BASE_URL,
   },
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'UnitechLabs — Where Code Meets the Real World',
     description: 'Custom software, IoT systems, and AI — engineered end-to-end for businesses that refuse to settle.',
-    images: ['/og-image.svg'],
+    images: ['/og-image.png'],
   },
   manifest: '/manifest.json',
   icons: {

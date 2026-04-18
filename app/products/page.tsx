@@ -4,7 +4,7 @@ import styles from '@/components/Page.module.css'
 
 export const metadata: Metadata = {
   title: 'Our Products — AgriTech, Hosting, Automation & More',
-  description: 'Explore UnitechLabs products: AI-powered AgriTech systems, managed web hosting, exterprise software, and enterprise workflow automation built on n8n.',
+  description: 'Explore UnitechLabs products: AI-powered AgriTech systems, managed web hosting, enterprise software, and enterprise workflow automation built on n8n.',
   alternates: { canonical: 'https://unitechlabs.io/products' },
   openGraph: { title: 'UnitechLabs Products — Built for the Real World', url: 'https://unitechlabs.io/products' },
 }

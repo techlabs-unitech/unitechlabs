@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <url>
+    <loc>https://unitechlabs.io/</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+<video:video>
+      <video:thumbnail_loc>https://unitechlabs.io/og-image.svg</video:thumbnail_loc>
+      <video:title>UnitechLabs — End-to-End Technology Solutions</video:title>
+      <video:description>UnitechLabs is a Bangalore-based technology company combining software, IoT, and AI into efficient, tailored solutions for your specific industry and business challenges.</video:description>
+      <video:content_loc>https://unitechlabs.io/Digital-Lab.mp4</video:content_loc>
+      <video:publication_date>2026-03-29T00:00:00+05:30</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://unitechlabs.io/products/</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://unitechlabs.io/blog/</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://unitechlabs.io/blog/7-essential-data-center-sustainability-strategies-for-2026/</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://unitechlabs.io/blog/how-ai-is-changing-the-face-of-digital-marketing/</loc>
+    <lastmod>2024-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://unitechlabs.io/blog/exploring-the-ethics-of-ai-and-robotics-in-society/</loc>
+    <lastmod>2024-06-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://unitechlabs.io/team/</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://unitechlabs.io/contact/</loc>
+    <lastmod>2026-03-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>

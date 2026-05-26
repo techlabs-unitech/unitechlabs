@@ -1,0 +1,16 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#F8F6F1"/>
+  <rect x="0" y="0" width="1200" height="4" fill="#C9A96E"/>
+  <!-- Logo area -->
+  <text x="80" y="200" font-family="Georgia, serif" font-weight="900" font-size="120" fill="#C9A96E">Uni</text>
+  <text x="296" y="200" font-family="Georgia, serif" font-weight="900" font-size="120" fill="#141210">tech</text>
+  <rect x="80" y="218" width="165" height="14" rx="2" fill="#C9A96E"/>
+  <!-- Tagline -->
+  <text x="80" y="310" font-family="Georgia, serif" font-weight="300" font-size="36" fill="#6B6560" font-style="italic">Where code meets the real world.</text>
+  <!-- Sub -->
+  <text x="80" y="370" font-family="Arial, sans-serif" font-size="22" fill="#A8A29C">Software · IoT · AI · Workflow Automation</text>
+  <!-- Badge -->
+  <text x="80" y="450" font-family="Arial, sans-serif" font-size="16" letter-spacing="3" fill="#C9A96E">ISO 9001:2015 CERTIFIED · BANGALORE, INDIA</text>
+  <!-- URL -->
+  <text x="80" y="580" font-family="Arial, sans-serif" font-size="18" fill="#A8A29C">unitechlabs.io</text>
+</svg>

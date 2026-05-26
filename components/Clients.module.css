@@ -1,0 +1,130 @@
+/* ── Clients / Logo strip ── */
+.wrap {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+  overflow: hidden;
+}
+
+/* ── Row layout on desktop ── */
+.layout {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ── Badge (GoodFirms / Google) ── */
+.badgeContainer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.badgeImage {
+  width: auto;
+  max-width: 300px;
+  height: auto;
+  max-height: 90px;
+  object-fit: contain;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+
+.badgeImage:hover { opacity: 1; }
+
+[data-theme='dark'] .badgeImage {
+  filter: invert(1) grayscale(0.1) brightness(0.9);
+}
+
+[data-theme='dark'] .badgeImage:hover {
+  filter: invert(1) brightness(1);
+}
+
+/* ── Scrolling track ── */
+.track {
+  flex: 1;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  min-width: 0; /* prevent flex blowout */
+}
+
+.list {
+  display: flex;
+  gap: 56px;
+  animation: marquee 22s linear infinite;
+  width: max-content;
+}
+
+/* ── Individual client ── */
+.client {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  white-space: nowrap;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.client:hover { color: var(--accent); }
+
+/* ── Client logos ── */
+.logo {
+  height: 50px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  opacity: 0.7;
+  filter: grayscale(0.2);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+[data-theme='dark'] .logo {
+  filter: invert(1) grayscale(0.15) brightness(0.85);
+}
+
+[data-theme='dark'] .logo:hover {
+  filter: invert(1) brightness(1);
+}
+
+/* ── Marquee animation ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Mobile: badge stacks ABOVE the carousel ── */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+
+  .badgeContainer {
+    justify-content: center;
+    padding: 4px 0;
+  }
+
+  .badgeImage {
+    max-width: 300px;
+    max-height: 90px;
+  }
+
+  .track {
+    /* Soften the fade on smaller screens so logos are fully visible */
+    mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  }
+}

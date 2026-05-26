@@ -1,0 +1,220 @@
+/* ── Hero section ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: 76px;
+  overflow: hidden;
+  /* Default mouse position for grid glow */
+  --mouse-x: 50%;
+  --mouse-y: 50%;
+}
+
+/* ── Interactive grid background ── */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 50%, black 20%, transparent 100%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Glow follows mouse — inherits --mouse-x/y from .hero via CSS cascade */
+.grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    380px circle at var(--mouse-x) var(--mouse-y),
+    rgba(201, 169, 110, 0.13),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── Two-column layout ── */
+.inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  align-items: center;
+  padding-top: 80px;
+  padding-bottom: 120px;
+}
+
+/* ── Eyebrow — text now aligns LEFT with headline ── */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 22px;
+  font-weight: 600;        /* slightly bolder for contrast */
+}
+/* Line comes AFTER the text so the text aligns with .headline */
+.eyebrow::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* ── Headline — more breathing room before the sub ── */
+.headline {
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
+  color: var(--text);
+  margin-bottom: 40px;
+  line-height: 1.08;
+}
+.headline em { font-style: italic; color: var(--accent); }
+
+/* ── Animated word ticker ── */
+.tickerWrap {
+  display: inline-block;
+  /* Clip to exactly one word height so neighbours don't shift */
+  overflow: hidden;
+  vertical-align: bottom;
+  /* Match the headline line-height so the clip box is tight */
+  line-height: 1.08;
+  /* Give a little extra vertical room so descenders aren't clipped */
+  padding-bottom: 0.06em;
+}
+
+.ticker {
+  display: inline-block;
+  font-style: italic;
+  color: var(--accent);
+  /* Start in resting position */
+  transform: translateY(0);
+  opacity: 1;
+  will-change: transform, opacity;
+}
+
+/* ── Sub copy ── */
+.sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 500px;
+  line-height: 1.85;
+  margin-bottom: 36px;
+}
+
+/* ── CTAs ── */
+.ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 36px;
+}
+
+/* ── Video card ── */
+.videoWrap {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  width: 400px;
+  height: 420px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  flex-shrink: 0;
+  align-self: center;
+  justify-self: center;
+  will-change: transform;  /* parallax */
+}
+
+.video {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 55%, rgba(13,12,10,0.5) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Scroll indicator ── */
+.scroll {
+  position: absolute;
+  z-index: 2;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeIn 1s 1.4s ease both;
+}
+
+.scrollLine {
+  display: block;
+  width: 1px;
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+  background: var(--border);
+  border-radius: 1px;
+}
+.scrollLine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to bottom, transparent, var(--accent));
+  animation: scrollDrip 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes scrollDrip {
+  0%   { top: -50%; opacity: 0; }
+  20%  { opacity: 1; }
+  100% { top: 120%; opacity: 0; }
+}
+
+.scrollText {
+  font-size: 0.6rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  animation: scrollPulse 1.6s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.9; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-top: 48px;
+    padding-bottom: 80px;
+  }
+  .videoWrap {
+    width: 95%;
+    height: 0;
+    padding-bottom: 100%;
+  }
+  .scroll { display: none; }
+}
+
+@media (max-width: 480px) {
+  .videoWrap { padding-bottom: 75%; }
+}

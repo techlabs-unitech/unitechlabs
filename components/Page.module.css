@@ -1,0 +1,315 @@
+/* ── Shared page shell ── */
+.page {
+  min-height: 100vh;
+  padding-top: 76px;   /* navbar height */
+}
+
+/* ── Page hero ── */
+.hero {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  padding: 80px 0 72px;
+}
+
+.heroInner {
+  max-width: 680px;
+}
+
+.heroTitle {
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  color: var(--text);
+  margin-bottom: 22px;
+  line-height: 1.08;
+}
+.heroTitle em { font-style: italic; color: var(--accent); }
+
+.heroSub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.85;
+  max-width: 540px;
+}
+
+/* ── Inner section ── */
+.inner { padding: 80px 0 120px; }
+
+/* ────────────────────────────
+   TEAM PAGE
+──────────────────────────── */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 72px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.avatar {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.role {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.bio {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  margin-top: 4px;
+}
+
+/* ────────────────────────────
+   BLOG PAGE
+──────────────────────────── */
+.blogGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.blogCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 32px 28px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+}
+.blogCard:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+.blogMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.blogCat {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.blogDot { color: var(--text-faint); font-size: 0.7rem; }
+
+.blogRead {
+  font-size: 0.7rem;
+  color: var(--text-faint);
+}
+
+.blogTitle {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.45;
+  flex: 1;
+}
+
+.blogExcerpt {
+  font-size: 0.865rem;
+  color: var(--text-muted);
+  line-height: 1.78;
+  flex: 1;
+}
+
+.blogFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.blogDate {
+  font-size: 0.7rem;
+  color: var(--text-faint);
+}
+
+.blogMore {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  transition: gap 0.2s;
+}
+.blogCard:hover .blogMore { gap: 8px; }
+
+/* ────────────────────────────
+   PRODUCTS PAGE
+──────────────────────────── */
+.productList {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  margin-bottom: 72px;
+}
+
+.productCard {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 60px;
+  align-items: start;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.productLeft {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 28px;
+}
+
+.productNum {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  padding-top: 6px;
+}
+
+.productCat {
+  display: block;
+  font-size: 0.66rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.productName {
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.productDesc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 500px;
+}
+
+.productFeatures {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  align-self: center;
+}
+
+.featuresLabel {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 18px;
+}
+
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+.featureItem svg { color: var(--accent); flex-shrink: 0; }
+
+/* ── Shared CTA block ── */
+.cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 72px 0 0;
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+}
+
+.ctaText {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1000px) {
+  .productCard { grid-template-columns: 1fr; gap: 36px; }
+  .productFeatures { max-width: 400px; }
+}
+
+@media (max-width: 900px) {
+  .teamGrid  { grid-template-columns: repeat(2, 1fr); }
+  .blogGrid  { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .teamGrid  { grid-template-columns: 1fr; }
+  .blogGrid  { grid-template-columns: 1fr; }
+  .productLeft { grid-template-columns: 36px 1fr; }
+  .heroTitle { font-size: 2.4rem; }
+}

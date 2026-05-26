@@ -1,0 +1,96 @@
+.section { overflow: hidden; }
+
+.header {
+  max-width: 520px;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.title em { font-style: italic; color: var(--accent); }
+
+.sub {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ── Viewport: hides overflow + fades edges ── */
+.viewport {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+  padding: 16px 0 36px;
+  cursor: grab;
+}
+.viewport:active { cursor: grabbing; }
+
+/* ── Scrolling track — 3× content so loop is seamless ── */
+.track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marquee 42s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% / 3)); }
+}
+
+/* ── Single slide ── */
+.slide {
+  width: 400px;
+  flex-shrink: 0;
+  min-height: 500px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Force embed to fill our width */
+.slide :global(.instagram-media) {
+  width: 100% !important;
+  min-width: unset !important;
+  max-width: 400px !important;
+}
+
+/* ── Follow link ── */
+.igLink {
+  margin-top: 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.igHandle {
+  color: var(--accent);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.igHandle:hover { border-bottom-color: var(--accent); }
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .slide { width: 300px; min-height: 420px; }
+  .track { gap: 14px; }
+}

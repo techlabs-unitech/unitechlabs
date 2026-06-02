@@ -45,7 +45,6 @@ export default function Contact() {
               {[
                 { icon: <PhoneIcon />, label: 'Phone',   value: '+91 9591066613',                                             href: 'tel:+919591066613' },
                 { icon: <MailIcon />,  label: 'Email',   value: 'info@unitechlabs.io',                                       href: 'mailto:info@unitechlabs.io' },
-                { icon: <PinIcon />,   label: 'Address', value: '31, 17th Cross, MRCR, Bangalore, Karnataka, India — 560040', href: 'https://maps.google.com/?q=31+17th+Cross+MRCR+Bangalore' },
               ].map(d => (
                 <a key={d.label} href={d.href} target="_blank" rel="noopener noreferrer" className={styles.detailRow}>
                   <span className={styles.detailIcon}>{d.icon}</span>

@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react'
 import styles from './Hero.module.css'
 
-const WORDS = ['design', 'develop', 'deploy']
+const WORDS = ['Lifelong Learning', 'Outcome Mapping', 'Academic', 'ERP', 'AI Compliance', 'Accreditation', 'Examination']
 const INTERVAL = 2000
 const DURATION = 500
 
@@ -93,11 +93,11 @@ export default function Hero() {
         <div className={styles.copy}>
           <p className={`label anim-fade-up ${styles.eyebrow}`}>Unitechlabs Software &amp; Innovations</p>
           <h1 className={`display anim-fade-up-1 ${styles.headline}`}>
-            We{' '}
+            One platform. Every standard.{' '}
             <span className={styles.tickerWrap} aria-live="polite">
-              <span className={styles.ticker} ref={tickerRef}>design</span>
+              <span className={styles.ticker} ref={tickerRef}>Lifelong Learning</span>
             </span>
-            {' '}end&#8209;to&#8209;end<br /> tech ecosystems
+            {' '}end&#8209;to&#8209;end<br />
           </h1>
           <p className={`anim-fade-up-2 ${styles.sub}`}>
             UnitechLabs is a Bangalore-based technology company — combining software, IoT, and AI into tailored solutions that tackle your specific industry, business, and technology challenges.

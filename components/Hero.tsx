@@ -2,7 +2,7 @@
 import { useEffect, useRef } from 'react'
 import styles from './Hero.module.css'
 
-const WORDS = ['Accreditation','Custom Software','IoT Systems','AI Compilance','Workflows','Automation','Lifelong Learner','Smart Integrations']
+const WORDS = ['Accreditation','Custom Software','IoT Systems','AI Compilance','Workflows','Automation','Lifelong Learning','Smart Integrations']
 const INTERVAL = 2000
 const DURATION = 500
 

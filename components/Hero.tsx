@@ -1,8 +1,8 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import styles from './Hero.module.css'
 
-const WORDS = ['Accreditation','Custom Software','IoT Systems','AI Compilance','Workflows','Automation','Lifelong Learning','Smart Integrations']
+const WORDS = ['Accreditation','Custom Software','IoT Systems','AI Compliance','Workflows','Automation','Lifelong Learning','Smart Integrations']
 const INTERVAL = 2000
 const DURATION = 500
 
@@ -10,6 +10,20 @@ export default function Hero() {
   const heroRef   = useRef<HTMLElement>(null)
   const cardRef   = useRef<HTMLDivElement>(null)
   const tickerRef = useRef<HTMLSpanElement>(null)
+  const [open, setOpen] = useState(false)
+
+  // Close on Escape key
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setOpen(false) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [])
+
+  // Lock body scroll when popup is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
 
   // Word ticker
   useEffect(() => {
@@ -87,50 +101,91 @@ export default function Hero() {
   }, [])
 
   return (
-    <section id="home" className={styles.hero} ref={heroRef}>
-      <div className={styles.grid} aria-hidden="true" />
-      <div className={`container ${styles.inner}`}>
-        <div className={styles.copy}>
-          <p className={`label anim-fade-up ${styles.eyebrow}`}>Unitechlabs Software &amp; Innovations</p>
-          <h1 className={`display anim-fade-up-1 ${styles.headline}`}>
-            One platform. Every standard.{' '}
-            <span className={styles.tickerWrap} aria-live="polite">
-              <span className={styles.ticker} ref={tickerRef}>Lifelong Learning</span>
-            </span>
-            {' '}
-          </h1>
-          <div className={`anim-fade-up-3 ${styles.ctas}`}>
-            <a href="/#services" className="btn btn--primary">Book Demo <ArrowRight /></a>
-            <a href="#contact" className="btn">Contact Us</a>
+    <>
+      <section id="home" className={styles.hero} ref={heroRef}>
+        <div className={styles.grid} aria-hidden="true" />
+        <div className={`container ${styles.inner}`}>
+          <div className={styles.copy}>
+            <p className={`label anim-fade-up ${styles.eyebrow}`}>Unitechlabs Software &amp; Innovations</p>
+            <h1 className={`display anim-fade-up-1 ${styles.headline}`}>
+              One platform. Every standard.{' '}
+              <span className={styles.tickerWrap} aria-live="polite">
+                <span className={styles.ticker} ref={tickerRef}>Lifelong Learning</span>
+              </span>
+              {' '}
+            </h1>
+            <div className={`anim-fade-up-3 ${styles.ctas}`}>
+              <button
+                type="button"
+                className="btn btn--primary"
+                onClick={() => setOpen(true)}
+              >
+                Book Demo <ArrowRight />
+              </button>
+              <a href="#contact" className="btn">Contact Us</a>
+            </div>
+          </div>
+
+          {/* ── Video card ──
+              poster="/og-image.png" is critical for Google Video Indexing.
+              Replace with a dedicated video thumbnail image when available.
+          ── */}
+          <div className={`anim-fade-in ${styles.videoWrap}`} ref={cardRef}>
+            <video
+              className={styles.video}
+              src="/Digital-Lab.mp4"
+              poster="/og-image.png"
+              autoPlay
+              muted
+              loop
+              playsInline
+              disablePictureInPicture
+              aria-label="UnitechLabs — End-to-End Technology Solutions demo reel"
+              title="UnitechLabs Digital Lab — Software, IoT & AI Solutions"
+              onContextMenu={e => e.preventDefault()}
+            />
+            <div className={styles.videoOverlay} aria-hidden="true" />
           </div>
         </div>
 
-        {/* ── Video card ──
-            poster="/og-image.png" is critical for Google Video Indexing.
-            Replace with a dedicated video thumbnail image when available.
-        ── */}
-        <div className={`anim-fade-in ${styles.videoWrap}`} ref={cardRef}>
-          <video
-            className={styles.video}
-            src="/Digital-Lab.mp4"
-            poster="/og-image.png"
-            autoPlay
-            muted
-            loop
-            playsInline
-            disablePictureInPicture
-            aria-label="UnitechLabs — End-to-End Technology Solutions demo reel"
-            title="UnitechLabs Digital Lab — Software, IoT & AI Solutions"
-            onContextMenu={e => e.preventDefault()}
-          />
-          <div className={styles.videoOverlay} aria-hidden="true" />
+        <div className={styles.scroll}>
+          <span className={styles.scrollLine} />
+          <span className={styles.scrollText}>Scroll</span>
         </div>
-      </div>
-      <div className={styles.scroll}>
-        <span className={styles.scrollLine} />
-        <span className={styles.scrollText}>Scroll</span>
-      </div>
-    </section>
+      </section>
+
+      {/* ── Booking Popup ── */}
+      {open && (
+        <div
+          className={styles.modalBackdrop}
+          onClick={() => setOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Schedule a consultation"
+        >
+          <div
+            className={styles.modalCard}
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              className={styles.modalClose}
+              onClick={() => setOpen(false)}
+              aria-label="Close"
+              type="button"
+            >
+              ✕
+            </button>
+            <iframe
+              src="https://zcal.co/i/0h4BR0yH?embed=1&embedType=iframe"
+              loading="lazy"
+              scrolling="no"
+              className={styles.modalIframe}
+              title="Schedule a consultation"
+            />
+          </div>
+        </div>
+      )}
+    </>
   )
 }
 

@@ -39,9 +39,8 @@ export default function Contact() {
       <div className="container">
         <div className={styles.grid}>
           <div className={styles.info}>
-            <p className="label" style={{ display: 'block', marginBottom: 14 }}>Get In Touch</p>
-            <h2 className={`display ${styles.title}`}>Let&apos;s build something<br /><em>remarkable together</em></h2>
-            <p className={styles.sub}>Whether you have a project in mind or just want to explore what&apos;s possible, our team is ready to listen and help you find the right solution.</p>
+            <h2 className={`display ${styles.title}`}>Schedule a no-obligation consultation</em></h2>
+            <p className={styles.sub}>A personal interview is the first step to a successful collaboration. Whether you have questions, want to discuss a project or are just curious about our approach, we are ready to meet with you.</p>
             <div className={styles.details}>
               {[
                 { icon: <PhoneIcon />, label: 'Phone',   value: '+91 9591066613',                                             href: 'tel:+919591066613' },

@@ -46,8 +46,8 @@ export default function ContactPageClient() {
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
           <p className="label" style={{ display: 'block', marginBottom: 16 }}>Get In Touch</p>
-          <h1 className={`display ${styles.heroTitle}`}>Let&apos;s build something<br /><em>remarkable together</em></h1>
-          <p className={styles.heroSub}>Whether you have a project in mind, need an IT consultation, or just want to explore what&apos;s possible — our team is ready to listen.</p>
+          <h1 className={`display ${styles.heroTitle}`}>Schedule a no-obligation consultation</h1>
+          <p className={styles.heroSub}>“Ready to discuss your ideas? Send us a WhatsApp message and we’ll easily schedule a conversation. We’re happy to think along with you!”</p>
         </div>
       </section>
 

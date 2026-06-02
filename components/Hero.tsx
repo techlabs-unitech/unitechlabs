@@ -100,8 +100,8 @@ export default function Hero() {
             {' '}
           </h1>
           <div className={`anim-fade-up-3 ${styles.ctas}`}>
-            <a href="/#services" className="btn btn--primary">Get Started <ArrowRight /></a>
-            <a href="#portfolio" className="btn">View Portfolio</a>
+            <a href="/#services" className="btn btn--primary">Book Demo <ArrowRight /></a>
+            <a href="#contact" className="btn">Contact Us</a>
           </div>
         </div>
 

@@ -99,9 +99,6 @@ export default function Hero() {
             </span>
             {' '}
           </h1>
-          <p className={`anim-fade-up-2 ${styles.sub}`}>
-            UnitechLabs is a Bangalore-based technology company — combining software, IoT, and AI into tailored solutions that tackle your specific industry, business, and technology challenges.
-          </p>
           <div className={`anim-fade-up-3 ${styles.ctas}`}>
             <a href="/#services" className="btn btn--primary">Get Started <ArrowRight /></a>
             <a href="#portfolio" className="btn">View Portfolio</a>

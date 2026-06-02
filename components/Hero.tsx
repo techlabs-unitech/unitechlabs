@@ -97,7 +97,7 @@ export default function Hero() {
             <span className={styles.tickerWrap} aria-live="polite">
               <span className={styles.ticker} ref={tickerRef}>Lifelong Learning</span>
             </span>
-            {' '}end&#8209;to&#8209;end<br />
+            {' '}
           </h1>
           <p className={`anim-fade-up-2 ${styles.sub}`}>
             UnitechLabs is a Bangalore-based technology company — combining software, IoT, and AI into tailored solutions that tackle your specific industry, business, and technology challenges.

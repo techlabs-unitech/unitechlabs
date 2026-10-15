@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Block build assets — not useful to crawlers
+Disallow: /assets/
+
+Sitemap: https://unitechlabs.io/sitemap.xml

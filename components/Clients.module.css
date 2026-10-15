@@ -1,0 +1,95 @@
+/* ── Clients / Logo strip ── */
+.wrap {
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 0;
+  overflow: hidden;
+}
+
+/* ── Row layout on desktop ── */
+.layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.heading {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  text-align: center;
+  margin: 0;
+}
+
+/* ── Scrolling track ── */
+.track {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+
+.list {
+  display: flex;
+  gap: 56px;
+  animation: marquee 22s linear infinite;
+  width: max-content;
+}
+
+/* ── Individual client ── */
+.client {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+  white-space: nowrap;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.client:hover { color: var(--accent); }
+
+/* ── Client logos ── */
+.logo {
+  height: 50px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  opacity: 0.7;
+  filter: grayscale(0.2);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.logo:hover {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+[data-theme='dark'] .logo {
+  filter: invert(1) grayscale(0.15) brightness(0.85);
+}
+
+[data-theme='dark'] .logo:hover {
+  filter: invert(1) brightness(1);
+}
+
+/* ── Marquee animation ── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ── Mobile tweaks ── */
+@media (max-width: 768px) {
+  .track {
+    /* Soften the fade on smaller screens so logos are fully visible */
+    mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 5%, black 95%, transparent);
+  }
+}

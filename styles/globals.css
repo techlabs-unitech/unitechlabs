@@ -1,0 +1,281 @@
+/* ── THEME VARIABLES ──────────────────────────────────── */
+:root {
+  --bg: #F8F6F1;
+  --bg-alt: #EFECE5;
+  --surface: #FFFFFF;
+  --border: rgba(0, 0, 0, 0.08);
+  --text: #141210;
+  --text-muted: #6B6560;
+  --text-faint: #A8A29C;
+  --accent: #C9A96E;
+  --accent-soft: rgba(201, 169, 110, 0.1);
+  --accent-hover: #B8935A;
+  --accent-2: #0F6E56;
+  --accent-2-soft: rgba(15, 110, 86, 0.1);
+  --accent-2-hover: #0C5A46;
+  --nav-bg: rgba(248, 246, 241, 0.88);
+  --shadow: 0 4px 40px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 16px 60px rgba(0, 0, 0, 0.10);
+  --radius: 2px;
+  --radius-lg: 8px;
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #0D0C0A;
+  --bg-alt: #141210;
+  --surface: #1A1816;
+  --border: rgba(255, 255, 255, 0.07);
+  --text: #F0EDE6;
+  --text-muted: #8C877F;
+  --text-faint: #4E4A44;
+  --accent: #C9A96E;
+  --accent-soft: rgba(201, 169, 110, 0.09);
+  --accent-hover: #D9BA7F;
+  --accent-2: #4BB894;
+  --accent-2-soft: rgba(75, 184, 148, 0.12);
+  --accent-2-hover: #63C6A4;
+  --nav-bg: rgba(13, 12, 10, 0.90);
+  --shadow: 0 4px 40px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 16px 60px rgba(0, 0, 0, 0.55);
+  color-scheme: dark;
+}
+
+/* ── RESET ────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  transition: background 0.35s ease, color 0.35s ease;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* ── TYPOGRAPHY ───────────────────────────────────────── */
+.display {
+  font-family: var(--font-cormorant), 'Cormorant Garamond', Georgia, serif;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+/* ── LAYOUT ───────────────────────────────────────────── */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section { padding: 120px 0; }
+.section--alt { background: var(--bg-alt); }
+
+/* ── UTILITIES ────────────────────────────────────────── */
+.label {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* ── BUTTONS ──────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 26px;
+  font-family: var(--font-dm-sans), 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: transparent;
+  color: var(--text);
+  white-space: nowrap;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn--primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0D0C0A;
+}
+.btn--primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #0D0C0A;
+}
+
+/* ── ANIMATIONS ───────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.anim-fade-up   { animation: fadeUp 0.8s ease both; }
+.anim-fade-up-1 { animation: fadeUp 0.8s 0.10s ease both; }
+.anim-fade-up-2 { animation: fadeUp 0.8s 0.22s ease both; }
+.anim-fade-up-3 { animation: fadeUp 0.8s 0.36s ease both; }
+.anim-fade-up-4 { animation: fadeUp 0.8s 0.52s ease both; }
+.anim-fade-in   { animation: fadeIn 1s   0.30s ease both; }
+
+/* ── SCROLLBAR ────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--text-faint); border-radius: 2px; }
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container { padding: 0 20px; }
+  .section   { padding: 80px 0; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   CELEBRATION LAYER  (components/Festive.tsx)
+   Purely additive: fixed overlays, no layout impact.
+   Remove this block + <Festive /> in layout.tsx to undo.
+═══════════════════════════════════════════════════════ */
+:root {
+  --fx-shine: #E8892B;
+  --fx-glow-a: rgba(255, 168, 40, 0.10);
+  --fx-glow-b: rgba(255, 61, 129, 0.06);
+}
+[data-theme='dark'] {
+  --fx-shine: #FFE9A8;
+  --fx-glow-a: rgba(255, 168, 40, 0.10);
+  --fx-glow-b: rgba(255, 61, 129, 0.08);
+}
+
+::selection { background: rgba(255, 168, 40, 0.35); color: inherit; }
+
+/* Warm ambient light in the corners */
+.fx-ambient {
+  position: fixed; inset: 0; z-index: 80; pointer-events: none;
+  background:
+    radial-gradient(60vw 45vh at 0% 0%,   var(--fx-glow-a), transparent 70%),
+    radial-gradient(55vw 45vh at 100% 100%, var(--fx-glow-b), transparent 70%),
+    radial-gradient(40vw 35vh at 100% 0%, var(--fx-glow-a), transparent 70%);
+  animation: fxBreathe 9s ease-in-out infinite;
+}
+@keyframes fxBreathe { 0%,100% { opacity: .65 } 50% { opacity: 1 } }
+
+/* Fireworks canvas — above content, below navbar & modals */
+.fx-canvas {
+  position: fixed; inset: 0; z-index: 90; pointer-events: none;
+  width: 100vw; height: 100vh;
+}
+
+/* Scroll progress, with glowing head */
+.fx-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 101; pointer-events: none;
+}
+.fx-progress__bar {
+  height: 100%; width: 100%; transform-origin: 0 50%; transform: scaleX(0);
+  background: linear-gradient(90deg, #C9A96E, #FFB800 40%, #FF7A1A 70%, #FF3D81);
+  box-shadow: 0 0 10px rgba(255, 150, 30, 0.7), 0 0 22px rgba(255, 61, 129, 0.35);
+  will-change: transform;
+}
+
+/* Sparkle on/off toggle */
+.fx-toggle {
+  position: fixed; left: 22px; bottom: 28px; z-index: 95;
+  width: 42px; height: 42px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--surface); color: var(--text-faint);
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+  cursor: pointer; transition: color .25s, border-color .25s, transform .25s, box-shadow .25s;
+}
+.fx-toggle:hover { transform: scale(1.08); border-color: var(--accent); color: var(--accent); }
+.fx-toggle.is-on { color: var(--accent); border-color: var(--accent); box-shadow: 0 0 18px rgba(255, 168, 40, .35); }
+.fx-toggle.is-on svg { animation: fxTwinkle 2.6s ease-in-out infinite; }
+@keyframes fxTwinkle { 0%,100% { transform: scale(1) rotate(0) } 50% { transform: scale(1.18) rotate(12deg) } }
+
+/* Gold shimmer sweeping through highlighted headline words */
+.display em {
+  background: linear-gradient(100deg, var(--accent) 0%, var(--accent) 38%, var(--fx-shine) 50%, var(--accent) 62%, var(--accent) 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent !important;
+  animation: fxShimmer 7s linear infinite;
+}
+@keyframes fxShimmer { 0% { background-position: 130% 0 } 100% { background-position: -130% 0 } }
+
+/* Light sweep over primary buttons */
+.btn--primary { position: relative; overflow: hidden; isolation: isolate; }
+.btn--primary::after {
+  content: ''; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; z-index: -1;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
+  transform: skewX(-18deg); animation: fxSheen 5.5s ease-in-out infinite;
+}
+@keyframes fxSheen { 0%, 62% { left: -60% } 100% { left: 140% } }
+
+/* Scroll reveal (class added by JS only, so content is never hidden without it) */
+.fx-reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.22, 1, .36, 1); }
+.fx-reveal.fx-in { opacity: 1; transform: none; }
+
+/* Switch everything off: visitor toggle or reduced-motion preference */
+.fx-off .fx-ambient, .fx-off .fx-canvas { display: none; }
+.fx-off .display em { animation: none; background: none; -webkit-text-fill-color: currentColor !important; color: var(--accent); }
+.fx-off .btn--primary::after { display: none; }
+.fx-off .fx-reveal { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-ambient, .display em, .btn--primary::after, .fx-toggle.is-on svg { animation: none !important; }
+  .fx-reveal { opacity: 1; transform: none; transition: none; }
+}
+@media (max-width: 768px) {
+  .fx-toggle { left: 14px; bottom: 20px; width: 40px; height: 40px; }
+}
+
+/* ── Advanced layer: string lights + rangoli mandalas ── */
+.fx-lights { position: fixed; top: 3px; left: 0; right: 0; height: 0; z-index: 102; pointer-events: none; }
+.fx-bulb {
+  position: absolute; top: 0; width: 1px; height: var(--h);
+  background: linear-gradient(rgba(201, 169, 110, .6), rgba(201, 169, 110, .15));
+  --c: #FFB800;
+}
+.fx-bulb:nth-child(4n+2) { --c: #FF7A1A; }
+.fx-bulb:nth-child(4n+3) { --c: #FF3D81; }
+.fx-bulb:nth-child(4n+4) { --c: #2FD3A0; }
+.fx-bulb::after {
+  content: ''; position: absolute; left: 50%; bottom: -6px; width: 6px; height: 8px; margin-left: -3px;
+  border-radius: 50% 50% 55% 55%; background: var(--c); box-shadow: 0 0 8px 2px var(--c);
+  animation: fxBulb 2.4s ease-in-out infinite; animation-delay: var(--d);
+}
+@keyframes fxBulb { 0%, 100% { opacity: .35; transform: scale(.85) } 50% { opacity: 1; transform: scale(1.1) } }
+
+.fx-mandala { position: fixed; z-index: 80; pointer-events: none; color: var(--accent); opacity: .09; }
+[data-theme='dark'] .fx-mandala { opacity: .12; }
+.fx-mandala svg { width: 100%; height: 100%; animation: fxSpin 160s linear infinite; }
+.fx-mandala--a { width: 560px; height: 560px; top: -200px; right: -200px; }
+.fx-mandala--b { width: 640px; height: 640px; bottom: -260px; left: -260px; }
+.fx-mandala--b svg { animation-direction: reverse; animation-duration: 200s; }
+@keyframes fxSpin { to { transform: rotate(360deg) } }
+
+.fx-off .fx-lights, .fx-off .fx-mandala { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .fx-bulb::after, .fx-mandala svg { animation: none !important; }
+}
+@media (max-width: 768px) {
+  .fx-bulb:nth-child(2n) { display: none; }
+  .fx-mandala--a { width: 340px; height: 340px; top: -140px; right: -140px; }
+  .fx-mandala--b { width: 380px; height: 380px; bottom: -170px; left: -170px; }
+}

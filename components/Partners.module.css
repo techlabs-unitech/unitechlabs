@@ -1,0 +1,121 @@
+.section { overflow: hidden; }
+
+.header {
+  max-width: 520px;
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: clamp(2rem, 3.8vw, 3.1rem);
+  color: var(--text);
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+.title em { font-style: italic; color: var(--accent-2); }
+
+.sub {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ── Viewport: hides overflow + fades edges ── */
+.viewport {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 7%,
+    black 93%,
+    transparent 100%
+  );
+  padding: 16px 0 36px;
+}
+
+/* ── Scrolling track — 3× content so loop is seamless ── */
+.track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: marquee 36s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100% / 3)); }
+}
+
+/* ── Single partner card ── */
+.card {
+  width: 260px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 28px 26px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+  border-color: var(--accent-2);
+}
+
+.logoWrap {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--accent-2-soft);
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.logo {
+  max-width: 32px;
+  max-height: 32px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.logoFallback {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.description {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .card { width: 220px; padding: 22px 20px; }
+  .track { gap: 14px; }
+}

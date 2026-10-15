@@ -1,0 +1,36 @@
+import Partners from './Partners'
+import { PWAInstallButton } from './PWAInstallBanner'
+import styles from './SocialProof.module.css'
+
+const stats = [
+  { value: '10M+', label: 'End Users Reached' },
+  { value: '200+', label: 'Projects Completed' },
+  { value: '4.9/5', label: 'Customer Rating' },
+  { value: '90%',  label: 'Returning Clients' },
+]
+
+export default function SocialProof() {
+  return (
+    <>
+      <Partners />
+      <section className="section">
+        <div className="container">
+          <div className={styles.stats}>
+            {stats.map(s => (
+              <div key={s.label} className={styles.stat}>
+                <span className={`display ${styles.statVal}`}>{s.value}</span>
+                <span className={styles.statLabel}>{s.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* PWA install nudge — only renders if browser supports install */}
+          <div className={styles.installRow}>
+            <p className={styles.installHint}>Take UnitechLabs with you — install the app for instant offline access.</p>
+            <PWAInstallButton />
+          </div>
+        </div>
+      </section>
+    </>
+  )
+}
